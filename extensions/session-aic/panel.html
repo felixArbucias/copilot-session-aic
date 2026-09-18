@@ -1,0 +1,61 @@
+<!doctype html>
+<!--
+THESIS: A read-only session meter, not an account billing dashboard.
+OWN-WORLD: Copilot's semantic theme, system type, tabular credit values.
+STORY: See the accumulated AIC, identify contributing models, keep working.
+FIRST VIEWPORT: Session heading and refresh control, total, then model ledger.
+FORM: Narrow companion panel following the user's CLI-counter reference.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Session AIC</title>
+    <link rel="stylesheet" href="panel.css">
+    <script type="module" src="panel.mjs"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Session AIC</h1>
+            <button type="button" id="refresh">Refresh</button>
+        </header>
+        <p class="muted" id="identity">Connecting to this session...</p>
+        <section aria-labelledby="total-heading" class="total-section">
+            <h2 id="total-heading">AI credits used</h2>
+            <p class="total"><span id="total">--</span> <span class="unit">AIC</span></p>
+            <p id="availability" class="muted">Reading the runtime's accumulated usage.</p>
+        </section>
+        <p id="error" role="alert" hidden></p>
+        <section aria-labelledby="models-heading">
+            <h2 id="models-heading">By model</h2>
+            <p id="empty" class="muted" hidden>No model calls have been reported yet.</p>
+            <div class="table-wrap">
+                <table id="models-table" hidden>
+                    <thead><tr><th scope="col">Model</th><th scope="col" class="number">Calls</th><th scope="col" class="number">AIC</th></tr></thead>
+                    <tbody id="models"></tbody>
+                </table>
+            </div>
+        </section>
+        <section id="agents-section" aria-labelledby="agents-heading" hidden>
+            <h2 id="agents-heading">By agent</h2>
+            <dl id="agents"></dl>
+        </section>
+        <details>
+            <summary>Session &amp; accounting details</summary>
+            <dl class="details-list">
+                <dt>Session</dt><dd id="session-id">--</dd>
+                <dt>Started</dt><dd id="started">--</dd>
+                <dt>Current model</dt><dd id="current-model">--</dd>
+            </dl>
+            <p class="muted">Reported by Copilot's session runtime, not estimated from tokens. The total includes agent work attributed to this session, not separate child sessions.</p>
+            <p class="muted">AIC = reported nano-AIU / 1,000,000,000. Model and agent rows are breakdowns of the same total, not additional charges. Runtime-restored totals can outlive the available breakdown.</p>
+            <p class="muted">This is a session meter, not an account balance or final billing statement. Missing billing fields are shown as unavailable, never as zero.</p>
+        </details>
+        <footer>
+            <p id="status" role="status">Loading usage...</p>
+            <p class="muted">Refreshes every 3 seconds while visible. No AI calls.</p>
+        </footer>
+    </main>
+</body>
+</html>

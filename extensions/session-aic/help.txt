@@ -1,0 +1,36 @@
+Session AIC - GitHub Copilot app plugin
+
+Open: ask Copilot "Open Session AIC" in the session you want to measure.
+The panel belongs to that conversation, even if several sessions are open.
+It reads session.rpc.usage.getMetrics() every 3 seconds while visible.
+Refresh and canvas refresh actions do not invoke an AI model.
+
+Accounting:
+- AIC = totalNanoAiu / 1,000,000,000 (the installed SDK's conversion).
+- The main total is the runtime total, not a sum of model or agent rows.
+- Work from subagents attributed to this runtime session is included.
+  Separate child sessions have their own totals.
+- Missing billing fields show Unavailable, not zero or premium requests.
+- The runtime owns persistence/restoration. No local event tally is used.
+  A restored session's breakdown can be less complete than its total.
+- Totals update after usage is reported, not token-by-token during a call.
+- These are reported session metrics, not an account-wide billing statement.
+
+Privacy:
+No external services, API tokens, dependencies, or AI calls are needed.
+Only a loopback server is used, with a random per-panel URL and host checks.
+No transcripts, repository files, or credentials are read.
+
+Install through Customize > Plugins using the self-hosted marketplace:
+felixArbucias/copilot-session-aic
+Or: copilot plugin marketplace add felixArbucias/copilot-session-aic
+    copilot plugin install session-aic@session-aic-marketplace
+Existing sessions may need a restart or extension reload to discover it.
+Close the panel to stop its server.
+Uninstall: copilot plugin uninstall session-aic@session-aic-marketplace
+Do not install both the plugin and a personal session-aic extension.
+
+Tests: node --test usage.test.mjs server.test.mjs
+The canvas APIs and usage RPC are experimental and may change with app updates.
+Full installation, accounting, compatibility, and privacy documentation:
+https://github.com/felixArbucias/copilot-session-aic

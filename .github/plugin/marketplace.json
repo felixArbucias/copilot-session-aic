@@ -1,0 +1,19 @@
+{
+  "name": "session-aic-marketplace",
+  "owner": {
+    "name": "felixArbucias"
+  },
+  "metadata": {
+    "description": "The self-hosted marketplace for the Session AIC Copilot app plugin.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "session-aic",
+      "description": "Live, runtime-reported AI credit usage for the current GitHub Copilot app session.",
+      "version": "0.1.0",
+      "source": "./",
+      "license": "MIT"
+    }
+  ]
+}

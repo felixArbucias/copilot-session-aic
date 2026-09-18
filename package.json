@@ -1,0 +1,15 @@
+{
+  "name": "copilot-session-aic",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "test": "node --test extensions/session-aic/usage.test.mjs extensions/session-aic/server.test.mjs tests/package.test.mjs",
+    "demo": "node scripts/demo.mjs"
+  }
+}

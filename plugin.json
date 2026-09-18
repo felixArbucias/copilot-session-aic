@@ -1,0 +1,14 @@
+{
+  "name": "session-aic",
+  "version": "0.1.0",
+  "description": "Live, runtime-reported AI credit usage for the current GitHub Copilot app session.",
+  "author": {
+    "name": "Felix",
+    "url": "https://github.com/felixArbucias"
+  },
+  "homepage": "https://github.com/felixArbucias/copilot-session-aic",
+  "repository": "https://github.com/felixArbucias/copilot-session-aic",
+  "license": "MIT",
+  "keywords": ["copilot", "canvas", "ai-credits", "session-usage"],
+  "extensions": ["./extensions"]
+}
