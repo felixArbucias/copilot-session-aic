@@ -11,7 +11,7 @@ test("serves the local panel and authoritative snapshot with private routes", as
     assert.equal(new URL(panel.url).hostname, "127.0.0.1");
     const html = await fetch(panel.url);
     assert.equal(html.status, 200);
-    assert.match(await html.text(), /Session AIC/);
+    assert.match(await html.text(), /Copilot Usage Monitor/);
     assert.match(html.headers.get("content-security-policy"), /default-src 'none'/);
     for (const file of ["panel.css", "panel.mjs"]) assert.equal((await fetch(`${panel.url}${file}`)).status, 200);
     const data = await fetch(`${panel.url}api/usage`);

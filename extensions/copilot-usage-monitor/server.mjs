@@ -45,7 +45,7 @@ export async function startServer({ readSnapshot, reportError }) {
                     try {
                         await reportError(new Error(message));
                     } catch (logError) {
-                        console.error("Session AIC could not log the usage failure:", logError);
+                        console.error("Copilot Usage Monitor could not log the usage failure:", logError);
                     }
                 }
                 res.writeHead(503).end(JSON.stringify({ error: message }));

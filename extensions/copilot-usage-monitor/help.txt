@@ -1,6 +1,7 @@
-Session AIC - GitHub Copilot app plugin
+Copilot Usage Monitor - GitHub Copilot app plugin
+Track AI credits used by each Copilot session, with live model and agent breakdowns.
 
-Open: ask Copilot "Open Session AIC" in the session you want to measure.
+Open: ask Copilot "Open Copilot Usage Monitor" in the session you want to measure.
 The panel belongs to that conversation, even if several sessions are open.
 It reads session.rpc.usage.getMetrics() every 3 seconds while visible.
 Refresh and canvas refresh actions do not invoke an AI model.
@@ -22,15 +23,27 @@ Only a loopback server is used, with a random per-panel URL and host checks.
 No transcripts, repository files, or credentials are read.
 
 Install through Customize > Plugins using the self-hosted marketplace:
-felixArbucias/copilot-session-aic
-Or: copilot plugin marketplace add felixArbucias/copilot-session-aic
-    copilot plugin install session-aic@session-aic-marketplace
+felixArbucias/copilot-usage-monitor
+Or: copilot plugin marketplace add felixArbucias/copilot-usage-monitor
+    copilot plugin install copilot-usage-monitor@copilot-usage-monitor-marketplace
 Existing sessions may need a restart or extension reload to discover it.
 Close the panel to stop its server.
-Uninstall: copilot plugin uninstall session-aic@session-aic-marketplace
-Do not install both the plugin and a personal session-aic extension.
+Uninstall: copilot plugin uninstall copilot-usage-monitor@copilot-usage-monitor-marketplace
+
+Migrating from Session AIC v0.1.0:
+Close the old panel. For the old marketplace installation, run:
+    copilot plugin uninstall session-aic@session-aic-marketplace
+    copilot plugin marketplace remove session-aic-marketplace
+For the old direct installation, run: copilot plugin uninstall session-aic
+CLI 1.0.86 cannot disable direct installs; uninstall the old copy instead.
+Then use the new marketplace installation commands above.
+GitHub URL redirects do not migrate plugin IDs automatically.
+Disable or remove any personal user:session-aic extension before installing,
+even if its display name is already Copilot Usage Monitor. That copy may keep
+the legacy folder/canvas ID; different IDs still create confusing duplicate tools.
+The packaged canvas ID is copilot-usage-monitor.
 
 Tests: node --test usage.test.mjs server.test.mjs
 The canvas APIs and usage RPC are experimental and may change with app updates.
 Full installation, accounting, compatibility, and privacy documentation:
-https://github.com/felixArbucias/copilot-session-aic
+https://github.com/felixArbucias/copilot-usage-monitor

@@ -1,14 +1,14 @@
 {
-  "name": "session-aic",
-  "version": "0.1.0",
-  "description": "Live, runtime-reported AI credit usage for the current GitHub Copilot app session.",
+  "name": "copilot-usage-monitor",
+  "version": "0.2.0",
+  "description": "Track AI credits used by each Copilot session, with live model and agent breakdowns.",
   "author": {
     "name": "Felix",
     "url": "https://github.com/felixArbucias"
   },
-  "homepage": "https://github.com/felixArbucias/copilot-session-aic",
-  "repository": "https://github.com/felixArbucias/copilot-session-aic",
+  "homepage": "https://github.com/felixArbucias/copilot-usage-monitor",
+  "repository": "https://github.com/felixArbucias/copilot-usage-monitor",
   "license": "MIT",
-  "keywords": ["copilot", "canvas", "ai-credits", "session-usage"],
+  "keywords": ["copilot", "usage", "ai-credits", "billing", "session"],
   "extensions": ["./extensions"]
 }

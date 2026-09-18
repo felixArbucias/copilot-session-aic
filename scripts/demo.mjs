@@ -1,6 +1,6 @@
 import { pathToFileURL } from "node:url";
-import { startServer } from "../extensions/session-aic/server.mjs";
-import { toSnapshot } from "../extensions/session-aic/usage.mjs";
+import { startServer } from "../extensions/copilot-usage-monitor/server.mjs";
+import { toSnapshot } from "../extensions/copilot-usage-monitor/usage.mjs";
 
 export async function startDemo() {
     return startServer({

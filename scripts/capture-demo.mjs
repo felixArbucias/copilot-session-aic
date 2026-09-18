@@ -9,7 +9,7 @@ import { startDemo } from "./demo.mjs";
 
 const browserPath = process.argv[2];
 if (!browserPath) throw new Error("Usage: node scripts/capture-demo.mjs <Edge-or-Chromium-executable>");
-const profile = await mkdtemp(join(tmpdir(), "session-aic-demo-"));
+const profile = await mkdtemp(join(tmpdir(), "copilot-usage-monitor-demo-"));
 const panel = await startDemo();
 let browser;
 let socket;
@@ -77,8 +77,8 @@ try {
     const screenshot = await command("Page.captureScreenshot", { format: "png", captureBeyondViewport: true });
     const directory = fileURLToPath(new URL("../docs/images/", import.meta.url));
     await mkdir(directory, { recursive: true });
-    await writeFile(join(directory, "session-aic-demo.png"), Buffer.from(screenshot.data, "base64"));
-    console.log("Captured docs/images/session-aic-demo.png using synthetic demo data.");
+    await writeFile(join(directory, "copilot-usage-monitor-demo.png"), Buffer.from(screenshot.data, "base64"));
+    console.log("Captured docs/images/copilot-usage-monitor-demo.png using synthetic demo data.");
 } finally {
     socket?.close();
     if (browser && browser.exitCode === null) {

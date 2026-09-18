@@ -1,17 +1,17 @@
 {
-  "name": "session-aic-marketplace",
+  "name": "copilot-usage-monitor-marketplace",
   "owner": {
     "name": "felixArbucias"
   },
   "metadata": {
-    "description": "The self-hosted marketplace for the Session AIC Copilot app plugin.",
-    "version": "0.1.0"
+    "description": "The self-hosted marketplace for the Copilot Usage Monitor app plugin.",
+    "version": "0.2.0"
   },
   "plugins": [
     {
-      "name": "session-aic",
-      "description": "Live, runtime-reported AI credit usage for the current GitHub Copilot app session.",
-      "version": "0.1.0",
+      "name": "copilot-usage-monitor",
+      "description": "Track AI credits used by each Copilot session, with live model and agent breakdowns.",
+      "version": "0.2.0",
       "source": "./",
       "license": "MIT"
     }

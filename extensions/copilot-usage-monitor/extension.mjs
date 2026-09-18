@@ -9,9 +9,9 @@ let readSnapshot;
 const session = await joinSession({
     canvases: [
         createCanvas({
-            id: "session-aic",
-            displayName: "Session AIC",
-            description: "Live AI credits for this session, with reported model and agent breakdowns.",
+            id: "copilot-usage-monitor",
+            displayName: "Copilot Usage Monitor",
+            description: "Track AI credits used by each Copilot session, with live model and agent breakdowns.",
             inputSchema: emptyInput,
             actions: [
                 {
@@ -32,12 +32,12 @@ const session = await joinSession({
                 if (!entry) {
                     entry = startServer({
                         readSnapshot: () => readSnapshot(),
-                        reportError: (error) => session.log(`Session AIC: ${error.message}`, { level: "error" }),
+                        reportError: (error) => session.log(`Copilot Usage Monitor: ${error.message}`, { level: "error" }),
                     });
                     servers.set(ctx.instanceId, entry);
                     entry.catch(() => servers.delete(ctx.instanceId));
                 }
-                return { title: "Session AIC", url: (await entry).url };
+                return { title: "Copilot Usage Monitor", url: (await entry).url };
             },
             onClose: async (ctx) => {
                 const entry = servers.get(ctx.instanceId);

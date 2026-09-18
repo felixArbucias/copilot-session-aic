@@ -1,6 +1,8 @@
 {
-  "name": "copilot-session-aic",
-  "version": "0.1.0",
+  "name": "copilot-usage-monitor",
+  "version": "0.2.0",
+  "description": "Track AI credits used by each Copilot session, with live model and agent breakdowns.",
+  "keywords": ["copilot", "usage", "ai-credits", "billing", "session"],
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -9,7 +11,7 @@
   },
   "scripts": {
     "check": "node scripts/check.mjs",
-    "test": "node --test extensions/session-aic/usage.test.mjs extensions/session-aic/server.test.mjs tests/package.test.mjs",
+    "test": "node --test extensions/copilot-usage-monitor/usage.test.mjs extensions/copilot-usage-monitor/server.test.mjs tests/package.test.mjs",
     "demo": "node scripts/demo.mjs"
   }
 }
